@@ -50,6 +50,7 @@ public class InventoryClick implements Listener {
 		}
 
 		events.getScore("clickedSlot").setScore(e.getSlot());
+		
 //		ItemStack is = e.getCursor();
 //		System.out.println("Cursor: " + (is == null ? "null" : is.getType()));
 //		

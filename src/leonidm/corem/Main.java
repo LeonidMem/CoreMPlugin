@@ -51,7 +51,10 @@ public class Main extends JavaPlugin {
 				if(subscribes.getScore("event.player.quit").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Quit(), Main.getInstance());
 				if(subscribes.getScore("event.player.inventoryclick").getScore() != 0) Bukkit.getPluginManager().registerEvents(new InventoryClick(), Main.getInstance());
 				if(subscribes.getScore("event.player.interactblock").getScore() != 0) Bukkit.getPluginManager().registerEvents(new InteractBlock(), Main.getInstance());
-				if(subscribes.getScore("event.entity.spawn").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Spawn(), Main.getInstance());
+				if(subscribes.getScore("event.entity.spawn").getScore() != 0) {
+					getLogger().info("Registered!");
+					Bukkit.getPluginManager().registerEvents(new Spawn(), Main.getInstance());
+				}
 				getLogger().info("Advice: set \"broadcast-console-to-ops\" in \"server.properties\" to \"false\" to prevent the spam.");
 				getLogger().info("Enabled!");
 			}
