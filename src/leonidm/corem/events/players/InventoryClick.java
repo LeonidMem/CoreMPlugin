@@ -22,7 +22,12 @@ public class InventoryClick implements Listener {
 	private Objective events;
 	private Map<String, Location> players = new HashMap<>();
 	private List<Material> detect = Arrays.asList(Material.CHEST, Material.TRAPPED_CHEST, Material.BARREL, Material.DROPPER, 
-			Material.DISPENSER, Material.SHULKER_BOX);
+			Material.DISPENSER, Material.ANVIL, Material.BEACON, Material.BLAST_FURNACE, Material.BREWING_STAND, Material.CARTOGRAPHY_TABLE,
+			
+			Material.SHULKER_BOX, Material.WHITE_SHULKER_BOX, Material.ORANGE_SHULKER_BOX, Material.MAGENTA_SHULKER_BOX,
+			Material.LIGHT_BLUE_SHULKER_BOX, Material.YELLOW_SHULKER_BOX, Material.LIME_SHULKER_BOX, Material.PINK_SHULKER_BOX,
+			Material.GRAY_SHULKER_BOX, Material.LIGHT_GRAY_SHULKER_BOX, Material.CYAN_SHULKER_BOX, Material.PURPLE_SHULKER_BOX,
+			Material.BLUE_SHULKER_BOX, Material.BROWN_SHULKER_BOX, Material.GREEN_SHULKER_BOX, Material.RED_SHULKER_BOX, Material.BLACK_SHULKER_BOX);
 	
 	public InventoryClick() {
 		events = Bukkit.getScoreboardManager().getMainScoreboard().getObjective("corem.events");
@@ -30,18 +35,22 @@ public class InventoryClick implements Listener {
 	
 	@EventHandler
 	public void onInvClick(InventoryClickEvent e) {
-		if(e.getWhoClicked().getEnderChest().equals(e.getClickedInventory())) {
-			events.getScore("isEnderchest").setScore(1);
-		}
-		else if(e.getWhoClicked().getInventory().equals(e.getClickedInventory())) {
-			events.getScore("isOwnerInventory").setScore(1);
-		}
+		String isItem = null;
+		boolean isContainer = false;
+		if(e.getWhoClicked().getEnderChest().equals(e.getClickedInventory())) isItem = "isEnderchest";
+		else if(e.getWhoClicked().getInventory().equals(e.getClickedInventory())) isItem = "isOwnerInventory";
 		else if(players.containsKey(e.getWhoClicked().getName())) {
-			if(e.getInventory().getType() == InventoryType.CHEST) events.getScore("isChest").setScore(1);
-			else if(e.getInventory().getType() == InventoryType.DROPPER) events.getScore("isDropper").setScore(1);
-			else if(e.getInventory().getType() == InventoryType.DISPENSER) events.getScore("isDispenser").setScore(1);
-			else if(e.getInventory().getType() == InventoryType.BARREL) events.getScore("isBarrel").setScore(1);
-			else if(e.getInventory().getType() == InventoryType.SHULKER_BOX) events.getScore("isShulkerBox").setScore(1);
+			if(e.getInventory().getType() == InventoryType.CHEST) isItem = "isChest";
+			else if(e.getInventory().getType() == InventoryType.DROPPER) isItem = "isDropper";
+			else if(e.getInventory().getType() == InventoryType.DISPENSER) isItem = "isDispenser";
+			else if(e.getInventory().getType() == InventoryType.BARREL) isItem = "isBarrel";
+			else if(e.getInventory().getType() == InventoryType.SHULKER_BOX) isItem = "isShulkerBox";
+			else if(e.getInventory().getType() == InventoryType.ANVIL) isItem = "isAnvil";
+			else if(e.getInventory().getType() == InventoryType.BEACON) isItem = "isBeacon";
+			else if(e.getInventory().getType() == InventoryType.BLAST_FURNACE) isItem = "isBlastFurnace";
+			else if(e.getInventory().getType() == InventoryType.BREWING) isItem = "isBrewing";
+			else if(e.getInventory().getType() == InventoryType.CARTOGRAPHY) isItem = "isCartography";
+			isContainer = true;
 			events.getScore("isContainer").setScore(1);
 		}
 		else {
@@ -49,6 +58,7 @@ public class InventoryClick implements Listener {
 			return;
 		}
 
+		if(isItem != null) events.getScore(isItem).setScore(1);
 		events.getScore("clickedSlot").setScore(e.getSlot());
 		
 //		ItemStack is = e.getCursor();
@@ -62,10 +72,10 @@ public class InventoryClick implements Listener {
 				loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + " run function #corem:events/player/server/inventory_click");
 		else Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "execute as " + e.getWhoClicked().getName() + 
 				" run function #corem:events/player/server/inventory_click");
-		for(String i : Arrays.asList("isEnderchest", "isOwnerInventory", "isContainer", "isChest", "isDropper", "isDispenser", 
-				"isBarrel", "isShulkerBox", "clickedSlot")) {
-			events.getScore(i).setScore(-1);
-		}
+		
+		if(isContainer) events.getScore("isContainer").setScore(-1);
+		if(isItem != null) events.getScore(isItem).setScore(-1);
+		events.getScore("clickedSlot").setScore(-1);
 	}
 	
 	@EventHandler

@@ -11,6 +11,7 @@ import leonidm.corem.events.players.InteractBlock;
 import leonidm.corem.events.players.InventoryClick;
 import leonidm.corem.events.players.Join;
 import leonidm.corem.events.players.Quit;
+import leonidm.corem.events.server.ChunkGenerated;
 
 public class Main extends JavaPlugin {
 
@@ -51,10 +52,12 @@ public class Main extends JavaPlugin {
 				if(subscribes.getScore("event.player.quit").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Quit(), Main.getInstance());
 				if(subscribes.getScore("event.player.inventoryclick").getScore() != 0) Bukkit.getPluginManager().registerEvents(new InventoryClick(), Main.getInstance());
 				if(subscribes.getScore("event.player.interactblock").getScore() != 0) Bukkit.getPluginManager().registerEvents(new InteractBlock(), Main.getInstance());
+				if(subscribes.getScore("event.server.chunkgenerated").getScore() != 0) Bukkit.getPluginManager().registerEvents(new ChunkGenerated(), Main.getInstance());
 				if(subscribes.getScore("event.entity.spawn").getScore() != 0) {
 					getLogger().info("Registered!");
 					Bukkit.getPluginManager().registerEvents(new Spawn(), Main.getInstance());
 				}
+				
 				getLogger().info("Advice: set \"broadcast-console-to-ops\" in \"server.properties\" to \"false\" to prevent the spam.");
 				getLogger().info("Enabled!");
 			}
