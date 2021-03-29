@@ -6,11 +6,14 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Objective;
 
 import leonidm.corem.events.CommandListener;
+import leonidm.corem.events.entity.Death;
 import leonidm.corem.events.entity.Spawn;
+import leonidm.corem.events.players.ChangeWorld;
 import leonidm.corem.events.players.InteractBlock;
 import leonidm.corem.events.players.InventoryClick;
 import leonidm.corem.events.players.Join;
 import leonidm.corem.events.players.Quit;
+import leonidm.corem.events.players.Teleport;
 import leonidm.corem.events.server.ChunkGenerated;
 
 public class Main extends JavaPlugin {
@@ -48,15 +51,18 @@ public class Main extends JavaPlugin {
 				Bukkit.getPluginManager().registerEvents(new CommandListener(), Main.getInstance());
 				
 				Objective subscribes = Bukkit.getScoreboardManager().getMainScoreboard().getObjective("corem.functions");
+				// Player events
 				if(subscribes.getScore("event.player.join").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Join(), Main.getInstance());
 				if(subscribes.getScore("event.player.quit").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Quit(), Main.getInstance());
 				if(subscribes.getScore("event.player.inventoryclick").getScore() != 0) Bukkit.getPluginManager().registerEvents(new InventoryClick(), Main.getInstance());
 				if(subscribes.getScore("event.player.interactblock").getScore() != 0) Bukkit.getPluginManager().registerEvents(new InteractBlock(), Main.getInstance());
+				if(subscribes.getScore("event.player.teleport").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Teleport(), Main.getInstance());
+				if(subscribes.getScore("event.player.changeworld").getScore() != 0) Bukkit.getPluginManager().registerEvents(new ChangeWorld(), Main.getInstance());
+				// Server events
 				if(subscribes.getScore("event.server.chunkgenerated").getScore() != 0) Bukkit.getPluginManager().registerEvents(new ChunkGenerated(), Main.getInstance());
-				if(subscribes.getScore("event.entity.spawn").getScore() != 0) {
-					getLogger().info("Registered!");
-					Bukkit.getPluginManager().registerEvents(new Spawn(), Main.getInstance());
-				}
+				// Entity events
+				if(subscribes.getScore("event.entity.spawn").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Spawn(), Main.getInstance());
+				if(subscribes.getScore("event.entity.death").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Death(), Main.getInstance());
 				
 				getLogger().info("Advice: set \"broadcast-console-to-ops\" in \"server.properties\" to \"false\" to prevent the spam.");
 				getLogger().info("Enabled!");
