@@ -8,6 +8,7 @@ import org.bukkit.scoreboard.Objective;
 import leonidm.corem.events.CommandListener;
 import leonidm.corem.events.entity.Death;
 import leonidm.corem.events.entity.Spawn;
+import leonidm.corem.events.players.BreakBlock;
 import leonidm.corem.events.players.ChangeWorld;
 import leonidm.corem.events.players.InteractBlock;
 import leonidm.corem.events.players.InventoryClick;
@@ -58,6 +59,7 @@ public class Main extends JavaPlugin {
 				if(subscribes.getScore("event.player.interactblock").getScore() != 0) Bukkit.getPluginManager().registerEvents(new InteractBlock(), Main.getInstance());
 				if(subscribes.getScore("event.player.teleport").getScore() != 0) Bukkit.getPluginManager().registerEvents(new Teleport(), Main.getInstance());
 				if(subscribes.getScore("event.player.changeworld").getScore() != 0) Bukkit.getPluginManager().registerEvents(new ChangeWorld(), Main.getInstance());
+				if(subscribes.getScore("event.player.breakblock").getScore() != 0) Bukkit.getPluginManager().registerEvents(new BreakBlock(), Main.getInstance());
 				// Server events
 				if(subscribes.getScore("event.server.chunkgenerated").getScore() != 0) Bukkit.getPluginManager().registerEvents(new ChunkGenerated(), Main.getInstance());
 				// Entity events
@@ -72,7 +74,6 @@ public class Main extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
-		
 		getLogger().info("Disabled!");
 	}
 	
