@@ -63,7 +63,7 @@ public class CommandListener implements Listener {
 						if(splitted.length == 2) return;
 						StringBuilder sb = new StringBuilder();
 						for(int i = 2; i < splitted.length; i++) {
-							sb.append(i);
+							sb.append(splitted[i]);
 						}
 						Bukkit.dispatchCommand(Bukkit.getConsoleSender(), sb.toString());
 						return;
