@@ -9,6 +9,6 @@ public class Death implements Listener {
 
 	@EventHandler
 	public void onDeath(EntityDeathEvent e) {
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "execute as " + e.getEntity().getUniqueId() + " run function #corem:events/entity/death");
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "execute as " + e.getEntity().getUniqueId() + " run function #corem:events/entity/server/death");
 	}
 }
