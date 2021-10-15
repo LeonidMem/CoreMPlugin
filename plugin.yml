@@ -1,6 +1,6 @@
 name: CoreM
-main: leonidm.corem.Main
-version : 1.0.0
+main: ru.leonidm.corem.CoreM
+version : 2.0.0
 api-version: 1.13
 commands:
     corem:

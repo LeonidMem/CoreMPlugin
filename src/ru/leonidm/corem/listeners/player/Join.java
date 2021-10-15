@@ -1,4 +1,4 @@
-package ru.leonidm.corem.events.players;
+package ru.leonidm.corem.listeners.player;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

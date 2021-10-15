@@ -1,4 +1,4 @@
-package ru.leonidm.corem.events.players;
+package ru.leonidm.corem.listeners.player;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -9,9 +9,9 @@ public class ChangeWorld implements Listener {
 
 	@EventHandler
 	public void onChangeWorld(PlayerChangedWorldEvent e) {
-		String world = e.getFrom().toString();
+		String world = e.getFrom().getName();
 		if(world.equals("world")) world = "overworld";
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "execute at minecraft:" + world + 
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "execute in minecraft:" + world +
 				" run function #corem:events/player/server/change_world");
 	}
 }

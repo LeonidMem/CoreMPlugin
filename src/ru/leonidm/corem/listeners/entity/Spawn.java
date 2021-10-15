@@ -1,4 +1,4 @@
-package ru.leonidm.corem.events.entity;
+package ru.leonidm.corem.listeners.entity;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import ru.leonidm.corem.Main;
+import ru.leonidm.corem.CoreM;
 
 public class Spawn implements Listener {
 
@@ -17,6 +17,6 @@ public class Spawn implements Listener {
 			public void run() {
 				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "execute as " + e.getEntity().getUniqueId() + " at @s run function #corem:events/entity/server/spawn");
 			}
-		}.runTask(Main.getInstance());
+		}.runTask(CoreM.getInstance());
 	}
 }

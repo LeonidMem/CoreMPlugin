@@ -1,4 +1,4 @@
-package ru.leonidm.corem.events;
+package ru.leonidm.corem.listeners;
 
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
@@ -109,14 +109,14 @@ public class CommandListener implements Listener {
 	
 	@EventHandler
 	public void onCmd(PlayerCommandPreprocessEvent e) {
-		if(e.getMessage().equals("/reload")) {
+		if(e.getMessage().equals("/reload") || e.getMessage().equals("/reload confirm")) {
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "function #corem:disable");
 		}
 	}
 
 	@EventHandler
 	public void onCmd(ServerCommandEvent e) {
-		if(e.getCommand().equals("reload")) {
+		if(e.getCommand().equals("reload") || e.getCommand().equals("reload confirm")) {
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "function #corem:disable");
 		}
 	}
