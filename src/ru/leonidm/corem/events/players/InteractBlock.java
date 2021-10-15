@@ -1,4 +1,4 @@
-package leonidm.corem.events.players;
+package ru.leonidm.corem.events.players;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

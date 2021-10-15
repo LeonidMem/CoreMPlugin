@@ -1,21 +1,21 @@
-package leonidm.corem;
+package ru.leonidm.corem;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Objective;
 
-import leonidm.corem.events.CommandListener;
-import leonidm.corem.events.entity.Death;
-import leonidm.corem.events.entity.Spawn;
-import leonidm.corem.events.players.BreakBlock;
-import leonidm.corem.events.players.ChangeWorld;
-import leonidm.corem.events.players.InteractBlock;
-import leonidm.corem.events.players.InventoryClick;
-import leonidm.corem.events.players.Join;
-import leonidm.corem.events.players.Quit;
-import leonidm.corem.events.players.Teleport;
-import leonidm.corem.events.server.ChunkGenerated;
+import ru.leonidm.corem.events.CommandListener;
+import ru.leonidm.corem.events.entity.Death;
+import ru.leonidm.corem.events.entity.Spawn;
+import ru.leonidm.corem.events.players.BreakBlock;
+import ru.leonidm.corem.events.players.ChangeWorld;
+import ru.leonidm.corem.events.players.InteractBlock;
+import ru.leonidm.corem.events.players.InventoryClick;
+import ru.leonidm.corem.events.players.Join;
+import ru.leonidm.corem.events.players.Quit;
+import ru.leonidm.corem.events.players.Teleport;
+import ru.leonidm.corem.events.server.ChunkGenerated;
 
 public class Main extends JavaPlugin {
 

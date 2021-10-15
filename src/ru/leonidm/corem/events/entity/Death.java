@@ -1,4 +1,4 @@
-package leonidm.corem.events.entity;
+package ru.leonidm.corem.events.entity;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

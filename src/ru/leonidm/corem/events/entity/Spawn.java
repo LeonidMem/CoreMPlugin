@@ -1,4 +1,4 @@
-package leonidm.corem.events.entity;
+package ru.leonidm.corem.events.entity;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import leonidm.corem.Main;
+import ru.leonidm.corem.Main;
 
 public class Spawn implements Listener {
 

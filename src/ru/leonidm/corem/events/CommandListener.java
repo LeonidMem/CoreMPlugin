@@ -1,4 +1,4 @@
-package leonidm.corem.events;
+package ru.leonidm.corem.events;
 
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;

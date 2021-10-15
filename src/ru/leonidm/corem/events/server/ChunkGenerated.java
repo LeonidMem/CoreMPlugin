@@ -1,4 +1,4 @@
-package leonidm.corem.events.server;
+package ru.leonidm.corem.events.server;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
