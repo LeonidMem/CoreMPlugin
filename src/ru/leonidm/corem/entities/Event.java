@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.scoreboard.Objective;
 import ru.leonidm.corem.CoreM;
+import ru.leonidm.corem.Utils;
 
 public enum Event {
 
@@ -32,22 +33,7 @@ public enum Event {
 
     private String generateClassName() {
         String[] split = this.toString().toLowerCase().split("_", 2);
-        return "ru.leonidm.corem.listeners." + split[0] + "." + snakeToCamel(split[1]);
-    }
-
-    private String snakeToCamel(String snakeCase) {
-        StringBuilder sb = new StringBuilder(snakeCase);
-
-        sb.replace(0, 1, String.valueOf(Character.toUpperCase(sb.charAt(0))));
-
-        for (int i = 0; i < sb.length(); i++) {
-            if (sb.charAt(i) == '_') {
-                sb.deleteCharAt(i);
-                sb.replace(i, i + 1, String.valueOf(Character.toUpperCase(sb.charAt(i))));
-            }
-        }
-
-        return sb.toString();
+        return "ru.leonidm.corem.listeners." + split[0] + "." + Utils.snakeToCamel(split[1]);
     }
 
     public static void register() {

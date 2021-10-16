@@ -11,7 +11,7 @@ public class Teleport implements Listener {
 
 	@EventHandler
 	public void onTeleport(PlayerTeleportEvent e) {
-		Arguments args = new Arguments(true);
+		Arguments args = new Arguments(true, Arguments.Type.EVENT);
 
 		String world = e.getFrom().getWorld().getName();
 		if(world.equals("world")) world = "overworld";

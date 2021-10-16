@@ -13,19 +13,13 @@ import ru.leonidm.corem.entities.Arguments;
 import ru.leonidm.corem.entities.Key;
 
 public class InteractBlock implements Listener {
-
-	private final Objective events;
-	
-	public InteractBlock() {
-		events = Bukkit.getScoreboardManager().getMainScoreboard().getObjective("corem.events");
-	}
 	
 	@EventHandler
 	public void onIntBlock(PlayerInteractEvent e) {
 		if(e.getAction() != Action.RIGHT_CLICK_BLOCK && e.getAction() != Action.LEFT_CLICK_BLOCK) return;
 		if(e.getHand() == EquipmentSlot.OFF_HAND) return;
 
-		Arguments args = new Arguments(true);
+		Arguments args = new Arguments(true, Arguments.Type.EVENT);
 
 		Key isRight = args.getKey("isRight");
 

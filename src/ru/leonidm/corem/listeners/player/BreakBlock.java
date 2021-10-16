@@ -12,7 +12,7 @@ public class BreakBlock implements Listener {
 
 	@EventHandler
 	public void onBreak(BlockBreakEvent e) {
-		Arguments args = new Arguments(true);
+		Arguments args = new Arguments(true, Arguments.Type.EVENT);
 
 		Location loc = e.getBlock().getLocation();
 		String world = loc.getWorld().getName();

@@ -18,10 +18,11 @@ public class InventoryClick implements Listener {
 
 		Location location = null;
 
-		Arguments args = new Arguments(true);
-		Key isContainer = args.getKey("isContainer"), clickedSlot = args.getKey("clickedSlot"),
-				isEnderchest = args.getKey("isEnderchest"), isOwnerInventory = args.getKey("isOwnerInventory"),
-				isShiftClick = args.getKey("isShiftClick"), isNumberClick = args.getKey("isNumberClick");
+		Arguments args = new Arguments(true, Arguments.Type.EVENT);
+
+		Key isContainer = args.getKey("isContainer", 0), clickedSlot = args.getKey("clickedSlot", 0),
+				isEnderchest = args.getKey("isEnderchest", 0), isOwnerInventory = args.getKey("isOwnerInventory", 0),
+				isShiftClick = args.getKey("isShiftClick", 0), isNumberClick = args.getKey("isNumberClick", 0);
 
 		if(e.getWhoClicked().getEnderChest().equals(e.getClickedInventory())) {
 			isEnderchest.setValue(1);

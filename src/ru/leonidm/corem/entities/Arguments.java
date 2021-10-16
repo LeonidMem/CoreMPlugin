@@ -8,38 +8,57 @@ import java.util.Map;
 
 public class Arguments {
 
-    private final static Objective events;
+    private final static Objective eventsArguments, commandsArguments;
 
     static {
-        events = Bukkit.getScoreboardManager().getMainScoreboard().getObjective("corem.events");
+        eventsArguments = Bukkit.getScoreboardManager().getMainScoreboard().getObjective("corem.events");
+        commandsArguments = Bukkit.getScoreboardManager().getMainScoreboard().getObjective("corem.arguments");
     }
 
     private final Map<String, Key> keys;
+    private final Objective arguments;
 
-    public Arguments(boolean isCancellable) {
+    public Arguments(boolean isCancellable, Type type) {
+        if(type == Type.EVENT) arguments = eventsArguments;
+        else if(type == Type.COMMAND) arguments = commandsArguments;
+        else throw new IllegalArgumentException("Wrong arguments' type!");
+
         this.keys = new HashMap<>();
         if(isCancellable) {
             getKey("isCancelled");
         }
     }
 
-    public Arguments() {
-        this(false);
+    public Arguments(Type type) {
+        this(false, type);
+    }
+
+    public Key getKey(String key, int newValue) {
+        Key outKey = keys.get(key);
+        if(outKey != null) return outKey;
+
+        outKey = new Key(arguments.getScore(key));
+        keys.put(key, outKey);
+        outKey.setValue(newValue);
+        return outKey;
     }
 
     public Key getKey(String key) {
         Key outKey = keys.get(key);
         if(outKey != null) return outKey;
 
-        outKey = new Key(events.getScore(key));
+        outKey = new Key(arguments.getScore(key));
         keys.put(key, outKey);
-        outKey.setValue(0);
         return outKey;
     }
 
     public void clear() {
+        clear(-1);
+    }
+
+    public void clear(int newKeyValues) {
         for(Key key : keys.values()) {
-            key.setValue(-1);
+            key.setValue(newKeyValues);
         }
         keys.clear();
     }
@@ -52,4 +71,7 @@ public class Arguments {
         return key.getValue() == 1;
     }
 
+    public enum Type {
+        EVENT, COMMAND
+    }
 }
