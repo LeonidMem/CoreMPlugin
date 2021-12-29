@@ -13,11 +13,11 @@ public class Teleport implements Listener {
 	public void onTeleport(PlayerTeleportEvent e) {
 		Arguments args = new Arguments(true, Arguments.Type.EVENT);
 
-		String world = e.getFrom().getWorld().getName();
+		String world = e.getTo().getWorld().getName();
 		if(world.equals("world")) world = "overworld";
-		Location loc = e.getFrom().clone();
+		Location loc = e.getTo();
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "execute in minecraft:" + world + " positioned " + loc.getX() + " " +
-				loc.getY() + " " + + loc.getZ() + " as " + e.getPlayer().getName() + " run function #corem:events/player/server/teleport");
+				loc.getY() + " " + loc.getZ() + " as " + e.getPlayer().getName() + " run function #corem:events/player/server/teleport");
 
 		e.setCancelled(args.isCancelled());
 		args.clear();

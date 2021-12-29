@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 public enum Command {
 
     // Player
-    OPEN_GUI, CLOSE_GUI, KICK, BAN, SET_MOTION,
+    OPEN_GUI, CLOSE_GUI, KICK, BAN, SET_MOTION, SET_SELECTED_SLOT,
 
     // Entity
     PASSENGER, DAMAGE, GET_ARROWS, SET_ARROWS, ATTACK, SET_TARGET,

@@ -1,7 +1,5 @@
 package ru.leonidm.corem.entities;
 
-import ru.leonidm.corem.entities.Arguments;
-
 import javax.annotation.Nullable;
 
 public interface CommandExecutor {

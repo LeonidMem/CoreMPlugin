@@ -9,8 +9,6 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerCommandEvent;
 import ru.leonidm.corem.entities.Command;
 
-import java.util.Arrays;
-
 public class CommandListener implements Listener {
 	
 	@EventHandler
