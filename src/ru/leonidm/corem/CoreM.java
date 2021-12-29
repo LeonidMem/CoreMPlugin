@@ -52,7 +52,7 @@ public class CoreM extends JavaPlugin {
 				getLogger().info("Advice: set \"broadcast-console-to-ops\" in \"server.properties\" to \"false\" to prevent the spam.");
 				getLogger().info("Enabled!");
 			}
-		}.runTaskLater(this, 2);
+		}.runTaskLater(this, 5);
 	}
 	
 	@Override
