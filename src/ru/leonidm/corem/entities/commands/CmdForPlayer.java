@@ -20,7 +20,7 @@ public class CmdForPlayer implements CommandExecutor {
         CommandSender consoleSender = Bukkit.getConsoleSender();
 
         for(Player player : players) {
-            player.removeScoreboardTag("corem.cmd_as_player");
+            player.removeScoreboardTag("corem.cmd_for_player");
 
             Bukkit.dispatchCommand(consoleSender, arg.replace("%player%", player.getName()));
         }
