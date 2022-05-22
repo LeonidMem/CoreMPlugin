@@ -5,6 +5,9 @@ import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Utils {
 
     public static String snakeToCamel(String snakeCase) {
@@ -40,5 +43,16 @@ public class Utils {
             }
         }
         return null;
+    }
+
+    public static List<Player> getPlayersWithTag(String tag) {
+        List<Player> out = new ArrayList<>();
+
+        for(Player player : Bukkit.getOnlinePlayers()) {
+            if(player.getScoreboardTags().contains(tag)) {
+                out.add(player);
+            }
+        }
+        return out;
     }
 }

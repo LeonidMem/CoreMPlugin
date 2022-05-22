@@ -13,7 +13,7 @@ public enum Command {
     PASSENGER, DAMAGE, GET_ARROWS, SET_ARROWS, ATTACK, SET_TARGET,
 
     // Misc
-    CMD;
+    CMD, CMD_AS_PLAYER, CMD_FOR_PLAYER;
 
     private final CommandExecutor executor;
 
