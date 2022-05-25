@@ -15,7 +15,7 @@ public class CmdForPlayer implements CommandExecutor {
     public void onCommand(@Nullable String arg) {
         if(arg == null) return;
 
-        List<Player> players = Utils.getPlayersWithTag("corem.cmd_as_player");
+        List<Player> players = Utils.getPlayersWithTag("corem.cmd_for_player");
 
         CommandSender consoleSender = Bukkit.getConsoleSender();
 
